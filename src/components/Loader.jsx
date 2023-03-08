@@ -5,16 +5,37 @@ const Loader = () => {
   return (
     <Html>
       <span className="canvas-load"></span>
-      <p
-        style={{
-          fontSize: 14,
-          color: "#f1f1f1",
-          fontWeight: 800,
-          marginTop: 40,
-        }}
-      >
-        {Number(progress.toFixed(2))}%
-      </p>
+      <div style={{ width: "300px", marginLeft: "-150px" }}>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "100px",
+            color: "#f1f1f1",
+            fontWeight: 800,
+            marginTop: 40,
+          }}
+        >
+          {Number(progress.toFixed(2))}%
+        </p>
+        <div
+          style={{
+            margin: "auto",
+            width: "300px",
+            height: "10px",
+            borderRadius: "5px",
+          }}
+        >
+          <div
+            style={{
+              width: progress.toFixed(2) + "%",
+              transition: "all .5s",
+              height: "10px",
+              borderRadius: "5px",
+              background: "#b0050e",
+            }}
+          ></div>
+        </div>
+      </div>
     </Html>
   );
 };
