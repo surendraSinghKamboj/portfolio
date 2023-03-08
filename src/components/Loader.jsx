@@ -1,7 +1,7 @@
 import { Html, useProgress } from "@react-three/drei";
 
 const Loader = () => {
-  const progress = useProgress();
+  const { progress } = useProgress();
   return (
     <Html>
       <span className="canvas-load"></span>
@@ -13,7 +13,7 @@ const Loader = () => {
           marginTop: 40,
         }}
       >
-        {progress.toFixed(2)}%
+        {Number(progress.toFixed(2))}%
       </p>
     </Html>
   );
