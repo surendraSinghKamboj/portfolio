@@ -5,17 +5,17 @@ const Loader = () => {
   return (
     <Html>
       <span className="canvas-load"></span>
-      <div style={{ width: "300px", marginLeft: "-150px" }}>
+      <div style={{ width: "300px", marginLeft: "-150px" }} className="felx flex-col justify-center items-center" >
         <p
           style={{
             fontSize: 18,
-            marginLeft: "100px",
+            marginLeft: "80px",
             color: "#f1f1f1",
             fontWeight: 800,
             marginTop: 40,
           }}
         >
-          {Number(progress.toFixed(2))}%
+          {Number(progress.toFixed(0))}%
         </p>
         <div
           style={{

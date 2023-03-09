@@ -8,7 +8,7 @@ const Ball = (props) => {
   return (
     <mesh scale={2.75}>
       <icosahedronGeometry args={[1, 1]} />
-      <meshStandardMaterial color="#dbdbdb" flatShading />
+      <meshStandardMaterial color="#c0b8b8" flatShading />
       <Decal position={[0, 0, 1]} rotation={[2 * Math.PI, 0, 0]} map={decal} />
     </mesh>
   );
