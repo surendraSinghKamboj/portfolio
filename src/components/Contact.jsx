@@ -8,6 +8,11 @@ import { SectionWraper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
 const Contact = () => {
+  const publi = import.meta.env.VITE_REACT_APP_EMAIL_KEY;
+  const service = import.meta.env.VITE_REACT_APP_SERVICE_ID;
+  const template = import.meta.env.VITE_REACT_APP_TEMPLATE_ID;
+
+
   const formRef = useRef();
 
   const [form, setForm] = useState({
@@ -21,7 +26,41 @@ const Contact = () => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        service,
+        template,
+        {
+          from_name: form.name,
+          to_name: "Surendra Singh Kamboj",
+          from_email: form.email,
+          to_email: "surendra.singh.kamboj@hotmail.com",
+          message: form.message,
+        },
+        publi
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank You. I will get back to you as soon as possible.");
+
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.log(error);
+          alert("Somthing Went Wrong.");
+        }
+      );
+  };
 
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
